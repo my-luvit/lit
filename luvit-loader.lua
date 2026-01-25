@@ -237,7 +237,7 @@ local function searcher(path)
       return 'bundle:' .. fullPath, loader
     end
   else
-    if uv.fs_access(fullPath) then
+    if uv.fs_access(fullPath, 'r') then
       return fullPath, loader
     end
   end
