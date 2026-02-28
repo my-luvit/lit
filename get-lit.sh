@@ -61,12 +61,12 @@ version_gte() {
 [ "${LIT_VERSION}" != "latest" ] && LIT_VERSION="v${LIT_VERSION}"
 [ "${LUVIT_VERSION}" != "latest" ] && LUVIT_VERSION="v${LUVIT_VERSION}"
 
-_luvi_url="https://github.com/luvit/luvi/releases/download/${LUVI_VERSION}/luvi-regular-${LUVI_OS}_${LUVI_ARCH}"
+_luvi_url="https://github.com/my-luvit/luvi/releases/download/${LUVI_VERSION}/luvi-regular-${LUVI_OS}_${LUVI_ARCH}"
 _lit_url="https://lit.luvit.io/packages/luvit/lit/${LIT_VERSION}.zip"
 _luvit_url="https://lit.luvit.io/packages/luvit/luvit/${LUVIT_VERSION}.zip"
 
 if [ "${LUVI_VERSION}" = "latest" ] || version_gte "${LUVI_VERSION}" "2.15.0"; then # select the new release format
-    _luvi_url="https://github.com/luvit/luvi/releases/download/${LUVI_VERSION}/luvi-${LUVI_OS}-${LUVI_ARCH}-${LUVI_ENGINE}-regular"
+    _luvi_url="https://github.com/my-luvit/luvi/releases/download/${LUVI_VERSION}/luvi-${LUVI_OS}-${LUVI_ARCH}-${LUVI_ENGINE}-regular"
 fi
 
 echo "[+] Installing luvit, lit and luvi to ${LUVI_PREFIX}"

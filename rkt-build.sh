@@ -28,7 +28,7 @@ acbuild --debug run apk add cmake git build-base curl perl
 
 # Clone luvi
 acbuild --debug run -- \
-  git clone --recursive https://github.com/luvit/luvi.git /luvi
+  git clone --recursive https://github.com/my-luvit/luvi.git /luvi
 
 # Build luvi
 acbuild --debug run -- \

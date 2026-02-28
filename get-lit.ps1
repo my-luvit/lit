@@ -110,12 +110,12 @@ if ($LUVI_VERSION -ne "latest") { $LUVI_VERSION = "v${LUVI_VERSION}" }
 if ($LIT_VERSION -ne "latest") { $LIT_VERSION = "v${LIT_VERSION}" }
 if ($LUVIT_VERSION -ne "latest") { $LUVIT_VERSION = "v${LUVIT_VERSION}" }
 
-$luvi_url = "https://github.com/luvit/luvi/releases/download/${LUVI_VERSION}/luvi-regular-${LUVI_OS}_${LUVI_ARCH}${exe_suffix}"
+$luvi_url = "https://github.com/my-luvit/luvi/releases/download/${LUVI_VERSION}/luvi-regular-${LUVI_OS}_${LUVI_ARCH}${exe_suffix}"
 $lit_url = "https://lit.luvit.io/packages/luvit/lit/${LIT_VERSION}.zip"
 $luvit_url = "https://lit.luvit.io/packages/luvit/luvit/${LUVIT_VERSION}.zip"
 
 if (${LUVI_VERSION} -eq "latest" -or (VersionGTE $LUVI_VERSION "2.15.0")) {
-  $luvi_url = "https://github.com/luvit/luvi/releases/download/${LUVI_VERSION}/luvi-${LUVI_OS}-${LUVI_ARCH}-${LUVI_ENGINE}-regular${exe_suffix}"
+  $luvi_url = "https://github.com/my-luvit/luvi/releases/download/${LUVI_VERSION}/luvi-${LUVI_OS}-${LUVI_ARCH}-${LUVI_ENGINE}-regular${exe_suffix}"
 }
 
 Write-Host "[+] Installing luvit, lit and luvi to ${LUVI_PREFIX}"

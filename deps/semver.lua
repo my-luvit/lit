@@ -1,7 +1,7 @@
 --[[lit-meta
   name = "luvit/semver"
   version = "2.0.0"
-  homepage = "https://github.com/luvit/lit/blob/master/deps/prompt.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/prompt.lua"
   description = "Parser, comparer and matcher for semantic versions strings."
   tags = {"semver"}
   license = "MIT"

@@ -6,7 +6,7 @@
     "luvit/websocket-codec@3.0.0",
     "luvit/coro-net@3.3.0",
   }
-  homepage = "https://github.com/luvit/lit/blob/master/deps/coro-websocket.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-websocket.lua"
   description = "Websocket helpers assuming coro style I/O."
   tags = {"coro", "websocket"}
   license = "MIT"

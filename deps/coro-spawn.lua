@@ -4,7 +4,7 @@
   dependencies = {
     "luvit/coro-channel@3.0.0"
   }
-  homepage = "https://github.com/luvit/lit/blob/master/deps/coro-spawn.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-spawn.lua"
   description = "An coro style interface to child processes."
   tags = {"coro", "spawn", "child", "process"}
   license = "MIT"

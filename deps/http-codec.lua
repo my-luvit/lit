@@ -19,7 +19,7 @@ limitations under the License.
 --[[lit-meta
   name = "luvit/http-codec"
   version = "3.0.8"
-  homepage = "https://github.com/luvit/luvit/blob/master/deps/http-codec.lua"
+  homepage = "https://github.com/my-luvit/luvit/blob/master/deps/http-codec.lua"
   description = "A simple pair of functions for converting between hex and raw strings."
   tags = {"codec", "http"}
   license = "Apache 2"

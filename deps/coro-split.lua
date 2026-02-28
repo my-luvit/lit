@@ -1,7 +1,7 @@
 --[[lit-meta
   name = "luvit/coro-split"
   version = "2.0.3"
-  homepage = "https://github.com/luvit/lit/blob/master/deps/coro-split.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-split.lua"
   description = "An coro style helper for running tasks concurrently."
   tags = {"coro", "split"}
   license = "MIT"

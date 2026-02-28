@@ -20,7 +20,7 @@ limitations under the License.
   name = "luvit/querystring"
   version = "2.0.1"
   license = "Apache 2"
-  homepage = "https://github.com/luvit/luvit/blob/master/deps/querystring.lua"
+  homepage = "https://github.com/my-luvit/luvit/blob/master/deps/querystring.lua"
   description = "Node-style query-string codec for luvit"
   tags = {"luvit", "url", "codec"}
 ]]

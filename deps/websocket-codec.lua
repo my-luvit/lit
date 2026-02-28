@@ -6,7 +6,7 @@
     "luvit/base64@2.0.0",
     "luvit/sha1@1.0.0",
   }
-  homepage = "https://github.com/luvit/lit/blob/master/deps/websocket-codec.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/websocket-codec.lua"
   tags = {"http", "websocket", "codec"}
   license = "MIT"
   author = { name = "Tim Caswell" }

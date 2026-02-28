@@ -5,7 +5,7 @@
     "luvit/coro-net@3.3.0",
     "luvit/http-codec@3.0.0"
   }
-  homepage = "https://github.com/luvit/lit/blob/master/deps/coro-http.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-http.lua"
   description = "An coro style http(s) client and server helper."
   tags = {"coro", "http"}
   license = "MIT"

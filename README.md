@@ -17,7 +17,7 @@ In most cases, you just want to install lit as quickly as possible, possibly
 in a `Makefile` or `make.bat` in your own library or app.
 
 We maintain several [binary releases of
-luvi](https://github.com/luvit/luvi/releases) to ease bootstrapping of lit and
+luvi](https://github.com/my-luvit/luvi/releases) to ease bootstrapping of lit and
 luvit apps.
 
 The following platforms are supported:
@@ -33,7 +33,7 @@ The following platforms are supported:
 On unix, download the [install script](./get-lit.sh) and pipe to `sh`:
 
 ```sh
-curl -L https://github.com/luvit/lit/raw/master/get-lit.sh | sh
+curl -L https://github.com/my-luvit/lit/raw/master/get-lit.sh | sh
 ```
 
 If you're on Windows, We've thought of you as well.  Simply download and run
@@ -42,14 +42,14 @@ the [powershell script](./get-lit.ps1).
 In `cmd.exe` run:
 
 ```batch
-PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))"
+PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/my-luvit/lit/raw/master/get-lit.ps1'))"
 ```
 
 Or directly in powershell, run:
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = 'Tls12'
-iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))
+iex ((new-object net.webclient).DownloadString('https://github.com/my-luvit/lit/raw/master/get-lit.ps1'))
 ```
 
 Both these scripts will attempt to download a pre-compiled [luvi][] binary and
@@ -62,7 +62,7 @@ that you can put somewhere in your path to install globally.
 #### Building From Source
 
 If the pre-built luvi binaries don't work on your machine, you can always build
-[luvi from source](https://github.com/luvit/luvi#building-from-source).
+[luvi from source](https://github.com/my-luvit/luvi#building-from-source).
 
 Once you have luvi, building lit is simple:
 
@@ -238,8 +238,8 @@ inject any missing dependencies into the bundle embedded in the executable.
 
 Also the `package.lua` can contain a white-list of black-list of files to
 include in the final bundle.  See examples in
-[luvit](https://github.com/luvit/luvit/blob/luvi-up/package.lua) and
-[lit](https://github.com/luvit/lit/blob/master/package.lua).
+[luvit](https://github.com/my-luvit/luvit/blob/luvi-up/package.lua) and
+[lit](https://github.com/my-luvit/lit/blob/master/package.lua).
 
 For example, lit's own bootstrap uses a combination of `LUVI_APP` and `lit make`
 to build itself with nothing more than the luvi executable and a zip file
@@ -412,8 +412,8 @@ newline delimited file of usernames.
 For full details read the source.  The libs folder has a nice [internal
 README](./libs/README) to get you started.
 
-[luvit]: https://github.com/luvit/luvit/
-[luvi]:https://github.com/luvit/luvi/
+[luvit]: https://github.com/my-luvit/luvit/
+[luvi]:https://github.com/my-luvit/luvi/
 
 ## Development
 

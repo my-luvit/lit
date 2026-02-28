@@ -1,7 +1,7 @@
 --[[lit-meta
   name = "luvit/coro-fs"
   version = "2.2.5"
-  homepage = "https://github.com/luvit/lit/blob/master/deps/coro-fs.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-fs.lua"
   description = "A coro style interface to the filesystem."
   tags = {"coro", "fs"}
   license = "MIT"

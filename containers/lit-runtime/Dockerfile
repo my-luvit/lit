@@ -1,6 +1,6 @@
 FROM alpine AS build
 RUN apk update && apk upgrade && apk add cmake ninja git build-base openssl-dev curl
-RUN git clone --recursive https://github.com/luvit/luvi.git /luvi
+RUN git clone --recursive https://github.com/my-luvit/luvi.git /luvi
 WORKDIR /luvi
 ENV GENERATOR Ninja
 RUN make regular-shared

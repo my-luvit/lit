@@ -21,7 +21,7 @@ limitations under the License.
   dependencies = {
     "luvit/ustring@2.0.0",
   }
-  homepage = "https://github.com/luvit/luvit/blob/master/deps/readline.lua"
+  homepage = "https://github.com/my-luvit/luvit/blob/master/deps/readline.lua"
   description = "A readline interface for terminals in pure lua."
   tags = {"readline", "tty"}
   license = "Apache 2"

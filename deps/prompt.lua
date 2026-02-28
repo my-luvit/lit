@@ -4,7 +4,7 @@
   dependencies = {
     "luvit/readline@2.0.0"
   }
-  homepage = "https://github.com/luvit/lit/blob/master/deps/prompt.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/prompt.lua"
   description = "A simple wrapper around readline for quick terminal prompts."
   tags = {"tty", "prompt"}
   license = "MIT"

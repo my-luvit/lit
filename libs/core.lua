@@ -181,7 +181,7 @@ local function makeCore(config)
     return author, name, version, tagHash
   end
 
-  local defaultTemplate = "https://github.com/luvit/luvi/releases/download/v%s/luvi-%s-%s"
+  local defaultTemplate = "https://github.com/my-luvit/luvi/releases/download/v%s/luvi-%s-%s"
   -- Given the luvi section of a package metadata, return the fs path to luvi.
   -- This will block and download it if needed.
   function core.getLuvi(meta)

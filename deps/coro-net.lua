@@ -8,7 +8,7 @@
   optionalDependencies = {
     "luvit/secure-socket@1.0.0"
   }
-  homepage = "https://github.com/luvit/lit/blob/master/deps/coro-net.lua"
+  homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-net.lua"
   description = "An coro style client and server helper for tcp and pipes."
   tags = {"coro", "tcp", "pipe", "net"}
   license = "MIT"

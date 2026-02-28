@@ -20,7 +20,7 @@ limitations under the License.
   name = "luvit/resource"
   version = "2.1.1"
   license = "Apache 2"
-  homepage = "https://github.com/luvit/luvit/blob/master/deps/resource.lua"
+  homepage = "https://github.com/my-luvit/luvit/blob/master/deps/resource.lua"
   description = "Utilities for loading relative resources"
   dependencies = {
     "luvit/pathjoin@2.0.0"
