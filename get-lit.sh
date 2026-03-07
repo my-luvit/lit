@@ -7,8 +7,8 @@ LUVI_OS=${LUVI_OS:-"$(uname -s)"}
 LUVI_ARCH=${LUVI_ARCH:-"$(uname -m)"}
 LUVI_ENGINE=${LUVI_ENGINE:-"luajit"}
 
-LUVI_VERSION=${LUVI_VERSION:-"2.15.0"}
-LIT_VERSION=${LIT_VERSION:-"3.9.0"}
+LUVI_VERSION=${LUVI_VERSION:-"latest"}
+LIT_VERSION=${LIT_VERSION:-"latest"}
 LUVIT_VERSION=${LUVIT_VERSION:-"latest"}
 
 _lit_zip="${LUVI_PREFIX}/lit.zip"

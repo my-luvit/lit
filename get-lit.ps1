@@ -3,8 +3,8 @@ Set-StrictMode -Version Latest
 # Set up variables and their environment overrides
 $LUVI_PREFIX = if ($env:LUVI_PREFIX) { $env:LUVI_PREFIX } else { $PWD }
 $LUVI_ENGINE = if ($env:LUVI_ENGINE) { $env:LUVI_ENGINE } else { "luajit" }
-$LUVI_VERSION = if ($env:LUVI_VERSION) { $env:LUVI_VERSION } else { "2.15.0" }
-$LIT_VERSION = if ($env:LIT_VERSION) { $env:LIT_VERSION } else { "3.9.0" }
+$LUVI_VERSION = if ($env:LUVI_VERSION) { $env:LUVI_VERSION } else { "latest" }
+$LIT_VERSION = if ($env:LIT_VERSION) { $env:LIT_VERSION } else { "latest" }
 $LUVIT_VERSION = if ($env:LUVIT_VERSION) { $env:LUVIT_VERSION } else { "latest" }
 
 # OS detection
