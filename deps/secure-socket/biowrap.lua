@@ -105,7 +105,13 @@ local function newSecureSocket(socket, ctx, options)
 
   -- When requested to write plain data, encrypt it and write to socket
   function ssocket.write(_, plain, callback)
-    ssocket.ssl:write(plain) -- TODO: handle write errors
+    if type(plain) == "table" then
+      for _, chunk in ipairs(plain) do
+        ssocket.ssl:write(chunk) -- TODO: handle write errors
+      end
+    else
+      ssocket.ssl:write(plain) -- TODO: handle write errors
+    end
     return flushSecureSocket(ssocket, callback)
   end
 
@@ -183,7 +189,7 @@ end
 
 ---@param ctx ssl_ctx
 ---@param socket uv_stream_t
----@param options {server: boolean?, servername: string?}
+---@param options {server: boolean?, servername: string?, initialData: string?}
 ---@param handshakeComplete function # called when the handshake is complete and it's safe
 return function (ctx, socket, options, handshakeComplete)
   local ssocket = newSecureSocket(socket, ctx, options)
@@ -211,4 +217,7 @@ return function (ctx, socket, options, handshakeComplete)
 
   doHandshake(ssocket)
   socket:read_start(onCipher)
+  if options.initialData then
+    onCipher(nil, options.initialData)
+  end
 end
