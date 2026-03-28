@@ -1,0 +1,2 @@
+database: /var/lib/lit/.litdb.git
+defaultUpstream: wss://lit.luvit.io/

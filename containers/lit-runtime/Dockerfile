@@ -1,21 +1,43 @@
-FROM alpine AS build
-RUN apk update && apk upgrade && apk add cmake ninja git build-base openssl-dev curl perl linux-headers
-RUN git clone --recursive https://github.com/my-luvit/luvi.git /luvi
-WORKDIR /luvi
-ENV GENERATOR Ninja
-RUN make regular
-RUN make test
-RUN build/luvi -v || true
-RUN apk add curl
-RUN curl -L https://lit.luvit.io/packages/luvit/lit/latest.zip -o lit.zip
+FROM alpine AS builder
 
-FROM alpine AS runtime
-RUN apk add libgcc --no-cache
-COPY --from=build /luvi/build/luvi /usr/bin/luvi
-COPY --from=build /luvi/lit.zip /lit.zip
-RUN cp /usr/bin/luvi /usr/bin/lit && cat /lit.zip >> /usr/bin/lit && rm lit.zip
+# TODO: add back the from-source builder
 
-RUN luvi -v || true
-RUN lit -v || true
-WORKDIR /workdir
-CMD ["ash"]
+# Required arguments!
+ARG LIT_VERSION
+ARG LUVI_VERSION
+ARG LUVIT_VERSION
+
+ARG LUVI_OS="linux"
+ARG LUVI_ARCH="x86_64"
+ARG LUVI_ENGINE="luajit"
+ARG LUVI_FLAVOR="regular-musl"
+
+WORKDIR /build
+# RUN apk add --no-cache curl libgcc && \
+#   curl -L https://raw.githubusercontent.com/my-luvit/lit/f7f7ece51c75cb5dd2cb1e65c6e9b1ea8a936e97/get-lit.sh | sh
+COPY ./luvi ./lit /build/bin/
+
+FROM scratch AS base
+LABEL kind="prebuild"
+LABEL arch=${LUVI_OS}
+LABEL os=${LUVI_OS}
+LABEL engine=${LUVI_ENGINE}
+
+FROM base AS lit
+COPY --from=builder --chmod=0755 /build/bin/lit /usr/bin/
+LABEL version=${LIT_VERSION}
+
+FROM base AS luvi
+COPY --from=builder --chmod=0755 /build/bin/luvi /usr/bin/
+LABEL version=${LUVI_VERSION}
+
+FROM base AS luvit
+COPY --from=builder --chmod=0755 /build/bin/luvit /usr/bin/
+LABEL version=${LUVIT_VERSION}
+
+FROM base AS all
+COPY --from=builder --chmod=0755 /build/bin/* /usr/bin/
+LABEL version=${LUVIT_VERSION}
+LABEL luvit_version=${LUVIT_VERSION}
+LABEL lit_version=${LIT_VERSION}
+LABEL luvi_version=${LUVI_VERSION}
