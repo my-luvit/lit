@@ -13,9 +13,9 @@ ARG LUVI_ENGINE="luajit"
 ARG LUVI_FLAVOR="regular-musl"
 
 WORKDIR /build
-# RUN apk add --no-cache curl libgcc && \
-#   curl -L https://raw.githubusercontent.com/my-luvit/lit/f7f7ece51c75cb5dd2cb1e65c6e9b1ea8a936e97/get-lit.sh | sh
-COPY ./luvi ./lit /build/bin/
+RUN apk add --no-cache curl libgcc && \
+  curl -L https://raw.githubusercontent.com/my-luvit/lit/f7f7ece51c75cb5dd2cb1e65c6e9b1ea8a936e97/get-lit.sh | sh
+# COPY ./luvi ./lit ./luvit /build/bin/
 
 FROM scratch AS base
 LABEL kind="prebuild"

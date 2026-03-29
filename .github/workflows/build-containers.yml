@@ -1,0 +1,22 @@
+name: Build new release as OCI images
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to ghcr
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | buildah login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push images
+        run: |
+          chmod +x ./build.sh
+          ./build.sh --push
