@@ -3,7 +3,7 @@
 Lit is a toolkit designed to make working in the new [luvit][] 2.0 ecosystem
 easy and even fun.
 
- - Lit powers the central repository at `wss://lit.luvit.io/`.
+ - Lit powers the central repository at `wss://lit.bilal0.dev/`.
  - Lit is used to publish new packages to the central repository.
  - Lit is used to download and install dependencies into your local tree.
  - Lit can be used to compile [luvi][] apps from folders or zip files into
@@ -67,7 +67,7 @@ If the pre-built luvi binaries don't work on your machine, you can always build
 Once you have luvi, building lit is simple:
 
 ```sh
-> curl -L https://lit.luvit.io/packages/luvit/lit/latest.zip > lit.zip
+> curl -L https://lit.bilal0.dev/packages/luvit/lit/latest.zip > lit.zip
 > luvi lit.zip -- make lit.zip
 ```
 
@@ -131,7 +131,7 @@ sign packages you create to be published.
 
 #### `lit up [url]`
 
-By default lit is configured to use `wss://lit.luvit.io` as it's upstream
+By default lit is configured to use `wss://lit.bilal0.dev` as it's upstream
 repository.  You can set a new custom upstream here.  If you're down (because of
 `lit down`) this will bring you back online.  If the url is ommitted, the
 `defaultUpstream` in your config will be used.
@@ -288,7 +288,7 @@ Lit servers export a simple REST based interface for browsing the package conten
 This is a simple rest API for reading the remote database over HTTP.
 It uses hypermedia in the JSON responses to make linking between requests simple.
 
-The API for the main lit repository can be found at https://lit.luvit.io/
+The API for the main lit repository can be found at https://lit.bilal0.dev/
 
 ```
 GET / -> api json {
@@ -399,7 +399,7 @@ and the central repository do support communication over TLS for clients on
 networks containing HTTP proxies that break normal communication.
 
 If you experience troubles on your company network, try setting your `upstream`
-and `defaultUpstream` in your `.litconfig` to `wss://lit.luvit.io/`.  The cert
+and `defaultUpstream` in your `.litconfig` to `wss://lit.bilal0.dev/`.  The cert
 is invalid, but that doesn't matter here since we're simply trying to confuse
 the proxy and not gain security from the socket.
 

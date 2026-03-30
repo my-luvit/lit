@@ -57,7 +57,7 @@ return function ()
 
   local dirty = false
   if not config.defaultUpstream then
-    config.defaultUpstream = "wss://lit.luvit.io/"
+    config.defaultUpstream = "wss://lit.bilal0.dev/"
     if not loaded then
       config.upstream = config.defaultUpstream
     end

@@ -65,8 +65,8 @@ version_gte() {
 [ "${LUVIT_VERSION}" != "latest" ] && LUVIT_VERSION="v${LUVIT_VERSION}"
 
 _luvi_url="https://github.com/my-luvit/luvi/releases/download/${LUVI_VERSION}/luvi-${LUVI_FLAVOR}-${LUVI_OS}_${LUVI_ARCH}"
-_lit_url="https://lit.luvit.io/packages/luvit/lit/${LIT_VERSION}.zip"
-_luvit_url="https://lit.luvit.io/packages/luvit/luvit/${LUVIT_VERSION}.zip"
+_lit_url="https://lit.bilal0.dev/packages/luvit/lit/${LIT_VERSION}.zip"
+_luvit_url="https://lit.bilal0.dev/packages/luvit/luvit/${LUVIT_VERSION}.zip"
 
 if [ "${LUVI_VERSION}" = "latest" ]; then # select the latest endpoint
     _luvi_url="https://github.com/my-luvit/luvi/releases/latest/download/luvi-${LUVI_OS}-${LUVI_ARCH}-${LUVI_ENGINE}-${LUVI_FLAVOR}"

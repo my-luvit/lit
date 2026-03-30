@@ -33,7 +33,7 @@ return function ()
     -- Read the current lit version
     local meta = require('../package')
     local version = semver.normalize(meta.version)
-    local body = fetch("https://lit.luvit.io/packages/luvit/lit")
+    local body = fetch("https://lit.bilal0.dev/packages/luvit/lit")
     local versions = assert(jsonParse(body), "Problem parsing JSON response from lit")
     local key
     local best = semver.match(version, function ()
@@ -77,7 +77,7 @@ return function ()
       end
 
       -- Download metadata for updated lit version
-      local meta = jsonParse(fetch("https://lit.luvit.io/packages/luvit/lit/v" .. toupdate))
+      local meta = jsonParse(fetch("https://lit.bilal0.dev/packages/luvit/lit/v" .. toupdate))
 
       -- Ensure proper luvi binary
       local luviPath = core.getLuvi(meta.luvi)
@@ -91,7 +91,7 @@ return function ()
       fs.close(fd2)
 
       -- Download and append zip
-      local zip = fetch("https://lit.luvit.io/packages/luvit/lit/v" .. toupdate .. ".zip")
+      local zip = fetch("https://lit.bilal0.dev/packages/luvit/lit/v" .. toupdate .. ".zip")
       assert(fs.write(fd, zip))
       fs.close(fd)
 

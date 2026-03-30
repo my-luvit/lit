@@ -107,8 +107,8 @@ elseif (VersionGTE $LUVI_VERSION "2.15.0") {
 else {
   $luvi_url = "https://github.com/my-luvit/luvi/releases/download/${LUVI_VERSION}/luvi-${LUVI_FLAVOR}-${LUVI_OS}_${LUVI_ARCH}${exe_suffix}"
 }
-$lit_url = "https://lit.luvit.io/packages/luvit/lit/${LIT_VERSION}.zip"
-$luvit_url = "https://lit.luvit.io/packages/luvit/luvit/${LUVIT_VERSION}.zip"
+$lit_url = "https://lit.bilal0.dev/packages/luvit/lit/${LIT_VERSION}.zip"
+$luvit_url = "https://lit.bilal0.dev/packages/luvit/luvit/${LUVIT_VERSION}.zip"
 
 Write-Host "[+] Installing luvit, lit and luvi to ${LUVI_PREFIX}"
 

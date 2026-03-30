@@ -26,7 +26,7 @@ local uv = require('uv')
 local core
 
 local function matchVersions(name, version)
-  local head, body = request("GET", "https://lit.luvit.io/packages/" .. name)
+  local head, body = request("GET", "https://lit.bilal0.dev/packages/" .. name)
   assert(head.code == 200)
   local versions = assert(jsonParse(body), "Problem parsing JSON response from lit")
   local key
