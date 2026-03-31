@@ -19,7 +19,7 @@ return function ()
   -- Bind the server instance
   app.bind({
     host = env.get("LIT_SERVE_HOST") or "0.0.0.0",
-    port = tonumber(env.get("LIT_SERVE_PORT") or 4822),
+    port = tonumber(env.get("LIT_SERVE_PORT")) or 4822,
   })
 
   -- Log requests
