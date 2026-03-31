@@ -18,5 +18,6 @@ jobs:
 
       - name: Build and push images
         run: |
+          cd containers
           chmod +x ./build.sh
           ./build.sh --push
