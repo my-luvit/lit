@@ -2,7 +2,7 @@
 set -e
 
 BUILDER=${BUILDER:-"buildah"}
-REGISTRY=${BUILDER:-"ghcr.io/"}
+REGISTRY=${REGISTRY:-"docker://ghcr.io"}
 
 LIT_VERSION=${LIT_VERSION:-"3.10.0"}
 LUVI_VERSION=${LUVI_VERSION:-"2.15.0.1"}
@@ -58,11 +58,19 @@ $BUILDER build \
   ./lit-server
 
 if [ "$1" = "--push" ]; then
-  echo "Pushing built images to registry ${REGISTRY}"
-  $BUILDER push "${REGISTRY}/my-luvit/lit:latest" "${REGISTRY}/my-luvit/lit:${LIT_VERSION}"
-  $BUILDER push "${REGISTRY}/my-luvit/luvi:latest" "${REGISTRY}/my-luvit/luvi:${LUVI_VERSION}"
-  $BUILDER push "${REGISTRY}/my-luvit/luvit:latest" "${REGISTRY}/my-luvit/luvit:${LUVIT_VERSION}"
-  $BUILDER push "${REGISTRY}/my-luvit/all:latest" "${REGISTRY}/my-luvit/all:${LUVIT_VERSION}"
+  echo "Pushing runtime images to registry ${REGISTRY}"
+  $BUILDER push localhost/my-luvit/lit:latest "${REGISTRY}/my-luvit/lit:latest"
+  $BUILDER push localhost/my-luvit/lit:latest "${REGISTRY}/my-luvit/lit:${LIT_VERSION}"
+  $BUILDER push localhost/my-luvit/luvi:latest "${REGISTRY}/my-luvit/luvi:latest"
+  $BUILDER push localhost/my-luvit/luvi:latest "${REGISTRY}/my-luvit/luvi:${LUVI_VERSION}"
+  $BUILDER push localhost/my-luvit/luvit:latest "${REGISTRY}/my-luvit/luvit:latest"
+  $BUILDER push localhost/my-luvit/luvit:latest "${REGISTRY}/my-luvit/luvit:${LUVIT_VERSION}"
+  $BUILDER push localhost/my-luvit/all:latest "${REGISTRY}/my-luvit/all:latest"
+  $BUILDER push localhost/my-luvit/all:latest "${REGISTRY}/my-luvit/all:${LUVIT_VERSION}"
+
+  echo "Pushing lit-server images to registry ${REGISTRY}"
+  $BUILDER push localhost/my-luvit/lit-server:latest "${REGISTRY}/my-luvit/lit-server:latest"
+  $BUILDER push localhost/my-luvit/lit-server:latest "${REGISTRY}/my-luvit/lit-server:${LIT_VERSION}"
 fi
 
 echo "Done."
