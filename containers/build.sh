@@ -4,9 +4,9 @@ set -e
 BUILDER=${BUILDER:-"buildah"}
 REGISTRY=${BUILDER:-"ghcr.io/"}
 
-LIT_VERSION=${LIT_VERSION:-"3.9.0"}
-LUVI_VERSION=${LUVI_VERSION:-"2.15.0"}
-LUVIT_VERSION=${LUVIT_VERSION:-"2.18.1"}
+LIT_VERSION=${LIT_VERSION:-"3.10.0"}
+LUVI_VERSION=${LUVI_VERSION:-"2.15.0.1"}
+LUVIT_VERSION=${LUVIT_VERSION:-"2.19.0"}
 
 echo "Building an OCI Alpine image of my-luvit/lit"
 $BUILDER build \
