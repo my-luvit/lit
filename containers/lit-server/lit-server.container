@@ -1,0 +1,16 @@
+# This file is intended to be used with Quadlet
+# See https://docs.podman.io/en/latest/markdown/podman-quadlet.1.html
+
+[Container]
+ContainerName=lit-server
+Environment=LIT_SERVE_PORT=4822
+Image=ghcr.io/my-luvit/lit-server:latest
+PublishPort=4822:4822
+Volume=$HOME/containers/lit-server/data:/var/lib/lit/
+AutoUpdate=registry
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
