@@ -16,10 +16,10 @@ limitations under the License.
 
 --]]
 --[[lit-meta
-  name = "luvit/readline"
+  name = "my-luvit/readline"
   version = "2.2.1"
   dependencies = {
-    "luvit/ustring@2.0.0",
+    "my-luvit/ustring@2.0.0",
   }
   homepage = "https://github.com/my-luvit/luvit/blob/master/deps/readline.lua"
   description = "A readline interface for terminals in pure lua."

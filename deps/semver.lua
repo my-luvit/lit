@@ -1,5 +1,5 @@
 --[[lit-meta
-  name = "luvit/semver"
+  name = "my-luvit/semver"
   version = "2.0.0"
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/prompt.lua"
   description = "Parser, comparer and matcher for semantic versions strings."

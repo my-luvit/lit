@@ -17,13 +17,13 @@ limitations under the License.
 --]]
 
 --[[lit-meta
-  name = "luvit/resource"
+  name = "my-luvit/resource"
   version = "2.1.1"
   license = "Apache 2"
   homepage = "https://github.com/my-luvit/luvit/blob/master/deps/resource.lua"
   description = "Utilities for loading relative resources"
   dependencies = {
-    "luvit/pathjoin@2.0.0"
+    "my-luvit/pathjoin@2.0.0"
   }
   tags = {"luvit", "relative", "resource"}
 ]]

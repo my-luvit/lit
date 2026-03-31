@@ -1,9 +1,9 @@
 --[[lit-meta
-  name = "creationix/weblit-websocket"
+  name = "my-luvit/weblit-websocket"
   version = "3.0.0"
   dependencies = {
-    "luvit/websocket-codec@3.0.0",
-    "luvit/coro-websocket@3.0.0",
+    "my-luvit/websocket-codec@3.0.0",
+    "my-luvit/coro-websocket@3.0.0",
   }
   description = "The websocket middleware for Weblit enables handling websocket clients."
   tags = {"weblit", "middleware", "websocket"}

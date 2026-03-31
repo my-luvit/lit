@@ -125,7 +125,7 @@ return function ()
         stat = bundle.stat,
       }, "."), luvitPath)
     else
-      updater.check({ name = "luvit/luvit" }, luvitPath)
+      updater.check({ name = "my-luvit/luvit" }, luvitPath)
     end
   end
 

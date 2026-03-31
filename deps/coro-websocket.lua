@@ -1,10 +1,10 @@
 --[[lit-meta
-  name = "luvit/coro-websocket"
+  name = "my-luvit/coro-websocket"
   version = "3.1.1"
   dependencies = {
-    "luvit/http-codec@3.0.0",
-    "luvit/websocket-codec@3.0.0",
-    "luvit/coro-net@3.3.0",
+    "my-luvit/http-codec@3.0.0",
+    "my-luvit/websocket-codec@3.0.0",
+    "my-luvit/coro-net@3.3.0",
   }
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-websocket.lua"
   description = "Websocket helpers assuming coro style I/O."

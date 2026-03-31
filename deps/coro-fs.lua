@@ -1,12 +1,12 @@
 --[[lit-meta
-  name = "luvit/coro-fs"
+  name = "my-luvit/coro-fs"
   version = "2.2.5"
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-fs.lua"
   description = "A coro style interface to the filesystem."
   tags = {"coro", "fs"}
   license = "MIT"
   dependencies = {
-    "luvit/pathjoin@2.0.0"
+    "my-luvit/pathjoin@2.0.0"
   }
   author = { name = "Tim Caswell" }
   contributors = {"Tim Caswell", "Alex Iverson"}

@@ -1,8 +1,8 @@
 --[[lit-meta
-  name = "creationix/weblit-router"
+  name = "my-luvit/weblit-router"
   version = "3.0.1"
   dependencies = {
-    'luvit/querystring@2.0.0'
+    'my-luvit/querystring@2.0.0'
   }
   description = "Weblit is a webapp framework designed around routes and middleware layers."
   tags = {"weblit", "router", "framework"}

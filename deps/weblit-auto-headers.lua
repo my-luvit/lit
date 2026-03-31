@@ -1,5 +1,5 @@
 --[[lit-meta
-  name = "creationix/weblit-auto-headers"
+  name = "my-luvit/weblit-auto-headers"
   version = "2.1.0"
   description = "The auto-headers middleware helps Weblit apps implement proper HTTP semantics"
   tags = {"weblit", "middleware", "http"}

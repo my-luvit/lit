@@ -1,5 +1,5 @@
 --[[lit-meta
-  name = "luvit/sha1"
+  name = "my-luvit/sha1"
   version = "1.0.4"
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/sha1.lua"
   description = "Pure Lua implementation of SHA1 using bitop"

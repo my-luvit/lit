@@ -1,5 +1,5 @@
 --[[lit-meta
-  name = "luvit/pathjoin"
+  name = "my-luvit/pathjoin"
   description = "The path utilities that used to be part of luvi"
   version = "2.0.0"
   tags = {"path"}

@@ -1,8 +1,8 @@
 --[[lit-meta
-  name = "luvit/prompt"
+  name = "my-luvit/prompt"
   version = "2.0.1"
   dependencies = {
-    "luvit/readline@2.0.0"
+    "my-luvit/readline@2.0.0"
   }
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/prompt.lua"
   description = "A simple wrapper around readline for quick terminal prompts."

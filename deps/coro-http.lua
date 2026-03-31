@@ -1,9 +1,9 @@
 --[[lit-meta
-  name = "luvit/coro-http"
+  name = "my-luvit/coro-http"
   version = "3.2.4"
   dependencies = {
-    "luvit/coro-net@3.3.0",
-    "luvit/http-codec@3.0.0"
+    "my-luvit/coro-net@3.3.0",
+    "my-luvit/http-codec@3.0.0"
   }
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-http.lua"
   description = "An coro style http(s) client and server helper."

@@ -1,12 +1,12 @@
 --[[lit-meta
-  name = "luvit/coro-net"
+  name = "my-luvit/coro-net"
   version = "3.3.1"
   dependencies = {
-    "luvit/coro-channel@3.0.0",
-    "luvit/coro-wrapper@3.0.0",
+    "my-luvit/coro-channel@3.0.0",
+    "my-luvit/coro-wrapper@3.0.0",
   }
   optionalDependencies = {
-    "luvit/secure-socket@1.0.0"
+    "my-luvit/secure-socket@1.0.0"
   }
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-net.lua"
   description = "An coro style client and server helper for tcp and pipes."

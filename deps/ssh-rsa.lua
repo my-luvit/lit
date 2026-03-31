@@ -1,5 +1,5 @@
 --[[lit-meta
-  name = "luvit/ssh-rsa"
+  name = "my-luvit/ssh-rsa"
   version = "2.0.0"
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/ssh-rsa.lua"
   description = "Addons to lua-openssl for working with openssh rsa keys."

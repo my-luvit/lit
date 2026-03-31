@@ -1,8 +1,8 @@
 --[[lit-meta
-  name = "luvit/coro-spawn"
+  name = "my-luvit/coro-spawn"
   version = "3.0.2"
   dependencies = {
-    "luvit/coro-channel@3.0.0"
+    "my-luvit/coro-channel@3.0.0"
   }
   homepage = "https://github.com/my-luvit/lit/blob/master/deps/coro-spawn.lua"
   description = "An coro style interface to child processes."
