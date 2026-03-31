@@ -1,6 +1,6 @@
 --[[lit-meta
   name = "my-luvit/weblit-server"
-  version = "3.1.3"
+  version = "3.1.4"
   dependencies = {
     'my-luvit/coro-net@3.3.0',
     'my-luvit/http-codec@3.0.0'
@@ -15,7 +15,6 @@
 local uv = require('uv')
 local createServer = require('coro-net').createServer
 local httpCodec = require('http-codec')
-local unpack = unpack or table.unpack
 
 -- Provide a nice case insensitive interface to headers.
 local headerMeta = {}
@@ -88,7 +87,7 @@ local function newServer(run)
       res.code = 500
       res.headers = setmetatable({}, headerMeta)
       res.body = err
-      print(err)
+      print(string.format("An error occurred when handling %s %s: %s", req.method, req.path, err))
     end
 
     local out = {
