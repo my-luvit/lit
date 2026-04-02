@@ -8,7 +8,7 @@ LIT_VERSION=${LIT_VERSION:-"3.10.1"}
 LUVI_VERSION=${LUVI_VERSION:-"2.15.0.1"}
 LUVIT_VERSION=${LUVIT_VERSION:-"2.19.0"}
 
-echo "Building an OCI Alpine image of my-luvit/lit"
+echo "Building my-luvit/lit"
 $BUILDER build \
   --layers \
   --build-arg LIT_VERSION="${LIT_VERSION}" \
@@ -19,7 +19,18 @@ $BUILDER build \
   -t my-luvit/lit:latest \
   ./lit-runtime
 
-echo "Building an OCI Alpine image of my-luvit/luvi"
+echo "Building my-luvit/lit-git"
+$BUILDER build \
+  --layers \
+  --build-arg LIT_VERSION="${LIT_VERSION}" \
+  --build-arg LUVI_VERSION="${LUVI_VERSION}" \
+  --build-arg LUVIT_VERSION="${LUVIT_VERSION}" \
+  --target lit-git \
+  -t my-luvit/lit-git:"${LIT_VERSION}" \
+  -t my-luvit/lit-git:latest \
+  ./lit-runtime
+
+echo "Building my-luvit/luvi"
 $BUILDER build \
   --layers \
   --build-arg LIT_VERSION="${LIT_VERSION}" \
@@ -30,7 +41,7 @@ $BUILDER build \
   -t my-luvit/luvi:latest \
   ./lit-runtime
 
-echo "Building an OCI Alpine image of my-luvit/luvit"
+echo "Building my-luvit/luvit"
 $BUILDER build \
   --layers \
   --build-arg LIT_VERSION="${LIT_VERSION}" \
@@ -41,7 +52,7 @@ $BUILDER build \
   -t my-luvit/luvit:latest \
   ./lit-runtime
 
-echo "Building an OCI Alpine image of my-luvit/all"
+echo "Building my-luvit/all"
 $BUILDER build \
   --layers \
   --build-arg LIT_VERSION="${LIT_VERSION}" \
@@ -52,7 +63,18 @@ $BUILDER build \
   -t my-luvit/all:latest \
   ./lit-runtime
 
-echo "Building an OCI Alpine image of my-luvit/lit-server"
+echo "Building my-luvit/all-git"
+$BUILDER build \
+  --layers \
+  --build-arg LIT_VERSION="${LIT_VERSION}" \
+  --build-arg LUVI_VERSION="${LUVI_VERSION}" \
+  --build-arg LUVIT_VERSION="${LUVIT_VERSION}" \
+  --target all-git \
+  -t my-luvit/all-git:"${LUVIT_VERSION}" \
+  -t my-luvit/all-git:latest \
+  ./lit-runtime
+
+echo "Building an OCI  image of my-luvit/lit-server"
 $BUILDER build \
   --layers \
   --build-arg LIT_VERSION="${LIT_VERSION}" \

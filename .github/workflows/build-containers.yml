@@ -4,20 +4,66 @@ on:
     tags:
       - '*'
 
+env:
+  REGISTRY: ghcr.io/${{ github.repository_owner }}
+  LIT_VERSION: "3.10.1"
+  LUVI_VERSION: "2.15.0.2"
+  LUVIT_VERSION: "2.19.0"
+
 jobs:
-  build-and-push:
+  runtime:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: lit
+            image_name: lit
+            version_tag: "3.10.1"
+          - target: lit-git
+            image_name: lit-git
+            version_tag: "3.10.1"
+          - target: luvi
+            image_name: luvi
+            version_tag: "2.15.0.2"
+          - target: luvit
+            image_name: luvit
+            version_tag: "2.19.0"
+          - target: all
+            image_name: all
+            version_tag: "2.19.0"
+          - target: all-git
+            image_name: all-git
+            version_tag: "2.19.0"
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Authenticate to ghcr
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | buildah login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build Images
+        id: build-image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ matrix.image_name }}
+          tags: ${{ matrix.version_tag }}
+          containerfiles: ./containers/lit-runtime/Dockerfile
+          layers: true
+          extra-args: |
+            --target=latest
+            --target=${{ matrix.target }}
+          build-args: |
+            LIT_VERSION=${{ env.LIT_VERSION }}
+            LUVI_VERSION=${{ env.LUVI_VERSION }}
+            LUVIT_VERSION=${{ env.LUVIT_VERSION }}
 
-      - name: Build and push images
-        run: |
-          cd containers
-          chmod +x ./build.sh
-          ./build.sh --push
+      - name: Push to GHCR
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
