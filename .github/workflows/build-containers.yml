@@ -48,12 +48,11 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: ${{ matrix.image_name }}
-          tags: ${{ matrix.version_tag }}
+          tags: latest ${{ matrix.version_tag }}
           containerfiles: ./containers/lit-runtime/Dockerfile
-          layers: true
+          # layers: true
           oci: true
           extra-args: |
-            --tag=latest
             --target=${{ matrix.target }}
           build-args: |
             LIT_VERSION=${{ env.LIT_VERSION }}
@@ -88,12 +87,11 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: lit-server
-          tags: ${{ env.LIT_VERSION }}
+          tags: latest ${{ env.LIT_VERSION }}
           containerfiles: ./containers/lit-server/Dockerfile
-          layers: true
+          workdir: ./containers/lit-server
+          # layers: true
           oci: true
-          extra-args: |
-            --tag=latest
           build-args: |
             LIT_VERSION=${{ env.LIT_VERSION }}
             LUVI_VERSION=${{ env.LUVI_VERSION }}

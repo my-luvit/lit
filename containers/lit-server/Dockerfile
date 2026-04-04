@@ -3,6 +3,7 @@ ARG LIT_VERSION="latest"
 FROM ghcr.io/my-luvit/lit:${LIT_VERSION}
 ARG LIT_VERSION
 ARG LIT_DIR=/var/lib/lit
+ARG UPSTREAM=wss://lit.bilal0.dev/
 ENV WEB_PREFIX="https://localhost" \
     LIT_CONFIG=/root/.litconfig
 
@@ -15,7 +16,7 @@ LABEL org.opencontainers.image.title="Lit Server" \
       org.opencontainers.image.vendor="Luvit.io"
 
 VOLUME "${LIT_DIR}"
-COPY ./.litconfig ${LIT_CONFIG}
+RUN printf "database: ${LIT_DIR}/.litdb.git\ndefaultUpstream: ${UPSTREAM}\n" > "${LIT_CONFIG}"
 
 COPY --from=my-luvit/lit:${LIT_VERSION} /usr/bin/lit /usr/bin/lit
 EXPOSE 4822
