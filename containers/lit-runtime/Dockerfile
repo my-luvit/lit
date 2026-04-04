@@ -16,6 +16,13 @@ ARG LUVI_OS
 ARG LUVI_ARCH
 ARG LUVI_ENGINE
 ARG LUVI_FLAVOR
+ENV LIT_VERSION=${LIT_VERSION} \
+    LUVI_VERSION=${LUVI_VERSION} \
+    LUVIT_VERSION=${LUVIT_VERSION} \
+    LUVI_OS=${LUVI_OS} \
+    LUVI_ARCH=${LUVI_ARCH} \
+    LUVI_ENGINE=${LUVI_ENGINE} \
+    LUVI_FLAVOR=${LUVI_FLAVOR}
 LABEL org.opencontainers.image.base.name="debian:stable-slim" \
       org.opencontainers.image.title="Luvit" \
       org.opencontainers.image.description="The luvit runtime combined with luvi and lit." \
