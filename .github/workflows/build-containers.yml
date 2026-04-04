@@ -1,4 +1,4 @@
-name: Build new release as OCI images
+name: Build and release new GHCR packages
 on:
   push:
     tags:
@@ -6,9 +6,9 @@ on:
 
 env:
   REGISTRY: ghcr.io/${{ github.repository_owner }}
-  LIT_VERSION: "3.10.1"
+  LIT_VERSION: "3.10.2"
   LUVI_VERSION: "2.15.0.2"
-  LUVIT_VERSION: "2.19.0"
+  LUVIT_VERSION: "2.19.0-1"
 
 jobs:
   runtime:
@@ -22,22 +22,22 @@ jobs:
         include:
           - target: lit
             image_name: lit
-            version_tag: "3.10.1"
+            version_tag: "3.10.2"
           - target: lit-git
             image_name: lit-git
-            version_tag: "3.10.1"
+            version_tag: "3.10.2"
           - target: luvi
             image_name: luvi
             version_tag: "2.15.0.2"
           - target: luvit
             image_name: luvit
-            version_tag: "2.19.0"
+            version_tag: "2.15.0.2"
           - target: all
             image_name: all
-            version_tag: "2.19.0"
+            version_tag: "2.15.0.2"
           - target: all-git
             image_name: all-git
-            version_tag: "2.19.0"
+            version_tag: "2.15.0.2"
 
     steps:
       - name: Checkout
@@ -51,8 +51,9 @@ jobs:
           tags: ${{ matrix.version_tag }}
           containerfiles: ./containers/lit-runtime/Dockerfile
           layers: true
+          oci: true
           extra-args: |
-            --target=latest
+            --tag=latest
             --target=${{ matrix.target }}
           build-args: |
             LIT_VERSION=${{ env.LIT_VERSION }}
@@ -65,5 +66,44 @@ jobs:
           registry: ${{ env.REGISTRY }}
           image: ${{ steps.build-image.outputs.image }}
           tags: ${{ steps.build-image.outputs.tags }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+  server:
+    needs: runtime
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pull Lit
+        run: |
+          podman pull ${{ env.REGISTRY }}/lit:latest
+      
+      - name: Build Lit Image
+        id: build-server
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: lit-server
+          tags: ${{ env.LIT_VERSION }}
+          containerfiles: ./containers/lit-server/Dockerfile
+          layers: true
+          oci: true
+          extra-args: |
+            --tag=latest
+          build-args: |
+            LIT_VERSION=${{ env.LIT_VERSION }}
+            LUVI_VERSION=${{ env.LUVI_VERSION }}
+            LUVIT_VERSION=${{ env.LUVIT_VERSION }}
+
+      - name: Push lit-server to GHCR
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          image: ${{ steps.build-server.outputs.image }}
+          tags: ${{ steps.build-server.outputs.tags }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
