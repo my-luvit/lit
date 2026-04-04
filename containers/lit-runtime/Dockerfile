@@ -92,7 +92,7 @@ COPY --from=builder /build/bin/ /usr/bin/
 ENTRYPOINT [ "/usr/bin/luvit" ]
 CMD [ "--version" ]
 
-FROM base AS all-git
+FROM all AS all-git
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git && \

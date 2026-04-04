@@ -6,9 +6,9 @@ on:
 
 env:
   REGISTRY: ghcr.io/${{ github.repository_owner }}
-  LIT_VERSION: "3.10.2"
-  LUVI_VERSION: "2.15.0.2"
-  LUVIT_VERSION: "2.19.0-1"
+  LIT_VERSION: &LIT_VERSION "3.10.2"
+  LUVI_VERSION: &LUVI_VERSION "2.15.0.2"
+  LUVIT_VERSION: &LUVIT_VERSION "2.19.0-1"
 
 jobs:
   runtime:
@@ -22,22 +22,22 @@ jobs:
         include:
           - target: lit
             image_name: lit
-            version_tag: "3.10.2"
+            version_tag: *LIT_VERSION
           - target: lit-git
             image_name: lit-git
-            version_tag: "3.10.2"
+            version_tag: *LIT_VERSION
           - target: luvi
             image_name: luvi
-            version_tag: "2.15.0.2"
+            version_tag: *LUVI_VERSION
           - target: luvit
             image_name: luvit
-            version_tag: "2.15.0.2"
+            version_tag: *LUVIT_VERSION
           - target: all
             image_name: all
-            version_tag: "2.15.0.2"
+            version_tag: *LUVIT_VERSION
           - target: all-git
             image_name: all-git
-            version_tag: "2.15.0.2"
+            version_tag: *LUVIT_VERSION
 
     steps:
       - name: Checkout
@@ -50,10 +50,11 @@ jobs:
           image: ${{ matrix.image_name }}
           tags: latest ${{ matrix.version_tag }}
           containerfiles: ./containers/lit-runtime/Dockerfile
-          # layers: true
+          layers: true
           oci: true
           extra-args: |
             --target=${{ matrix.target }}
+            --no-cache
           build-args: |
             LIT_VERSION=${{ env.LIT_VERSION }}
             LUVI_VERSION=${{ env.LUVI_VERSION }}
@@ -90,7 +91,7 @@ jobs:
           tags: latest ${{ env.LIT_VERSION }}
           containerfiles: ./containers/lit-server/Dockerfile
           workdir: ./containers/lit-server
-          # layers: true
+          layers: true
           oci: true
           build-args: |
             LIT_VERSION=${{ env.LIT_VERSION }}
