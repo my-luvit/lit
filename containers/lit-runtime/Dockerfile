@@ -65,7 +65,7 @@ CMD [ "--version" ]
 FROM lit AS lit-git
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        git && \
+        git ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 FROM base AS luvi
@@ -95,5 +95,5 @@ CMD [ "--version" ]
 FROM all AS all-git
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        git && \
+        git ca-certificates && \
     rm -rf /var/lib/apt/lists/*
